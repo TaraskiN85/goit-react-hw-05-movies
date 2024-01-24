@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
 import { fetchTrendingMovies } from 'services/api';
 import { StyledHome, TrendingList } from './Home.styled';
 import { TrendMovieItem } from 'components/TrendMovieItem/TrendMovieItem';
