@@ -18,7 +18,6 @@ const Home = () => {
       const fetchData = async () => {
         const data = await fetchTrendingMovies();
         setTrendingMovies(data.results)
-        console.log(data.results)
       }
  
       fetchData()
