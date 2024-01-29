@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-  /* display: flex; */
   width: 100%;
   justify-content: center;
   align-items: center;

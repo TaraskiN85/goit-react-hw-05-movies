@@ -4,12 +4,15 @@ export const StyledInfo = styled.div`
   display: flex;
   flex-direction: row;
   gap: 50px;
+  margin-top: 50px;
 
   > img {
     width: 100%;
     max-width: 200px;
-    max-height: auto;
+    max-height: 300px;
+    margin: auto 0;
   }
+  /* } */
 `;
 
 export const Description = styled.div`

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
@@ -15,8 +16,21 @@ export const StyledContainer = styled.div`
 
     &:hover,
     &:focus,
-    &:active {
+    &.active {
       color: silver;
     }
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  margin-top: 8px;
+  text-decoration: none;
+  color: grey;
+  font-size: 26px;
+  transition: ease-in 0.1s;
+
+  &:hover,
+  &:focus {
+    color: silver;
   }
 `;

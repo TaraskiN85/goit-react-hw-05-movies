@@ -1,13 +1,13 @@
 import React from 'react'
-import { Description, StyledInfo } from './MovieCard.styled'
+
 import { POSTER_URL } from 'services/api'
 
+import { Description, StyledInfo } from './MovieCard.styled'
+
 export const MovieCard = ({ movieInfo }) => {
- 
   const { poster_path, release_date, title, vote_average, vote_count, popularity, overview } = movieInfo;
 
   const release_year = release_date.slice(0, 4)
-  console.log(movieInfo)
 
   return (
     <StyledInfo>
@@ -20,7 +20,6 @@ export const MovieCard = ({ movieInfo }) => {
           <p><span>Viewed</span>{vote_count}</p>
           <p><span>Popularity</span>{popularity}</p>
         </div>
-
       </Description>
     </StyledInfo>
   )

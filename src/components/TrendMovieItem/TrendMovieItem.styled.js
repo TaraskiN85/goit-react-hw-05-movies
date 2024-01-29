@@ -12,8 +12,7 @@ export const StyledItem = styled(Link)`
   margin: 24px auto;
   text-align: center;
   &:hover,
-  &:focus,
-  &:active {
+  &:focus {
     color: silver;
   }
 `;
@@ -24,11 +23,6 @@ export const StyledImg = styled.img`
   object-fit: cover;
   overflow: hidden;
   margin-bottom: 12px;
-
-  /* &:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: solid 2px #fff;
-  } */
 `;
 
 export const StyledTitle = styled.h3`

@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import { fetchTrendingMovies } from 'services/api';
-import { StyledHome, TrendingList } from './Home.styled';
+import { toast } from 'react-toastify';
+
 import { TrendMovieItem } from 'components/TrendMovieItem/TrendMovieItem';
+
+import { Loader } from 'helpers/Loader/Loader';
+import { fetchTrendingMovies } from 'services/api';
+
+import { StyledHome, TrendingList } from './Home.styled';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([])
-  // someId: '787699'
+  const [isLoading, setIsLoading] = useState(false)
+
   useEffect(() => {
     try {
+      setIsLoading(true)
       const fetchData = async () => {
         const data = await fetchTrendingMovies();
         setTrendingMovies(data.results)
         console.log(data.results)
       }
-  
+ 
       fetchData()
     } catch (error) {
-      alert(error)
+      toast.error(error.message)
+      setIsLoading(false)
+    } finally {
+      setIsLoading(false)
     }
   }, [])
 
   return (
     <StyledHome>
       <h1>Trending today</h1>
+      {isLoading && <Loader/>}
       <TrendingList>
         {trendingMovies.length > 0 && trendingMovies.map(movieData => {
           return (

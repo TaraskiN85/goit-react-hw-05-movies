@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledSection = styled.section`
@@ -6,7 +6,7 @@ export const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   background-color: #14181d;
-  height: auto;
+  height: 100vh;
 `;
 
 export const HeaderContainer = styled.div`
@@ -30,13 +30,14 @@ export const MainContainer = styled.div`
   align-items: center;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
+  transition: ease-in 0.1s;
 
   &:hover,
   &:focus,
-  &:active {
+  &.active {
     color: green;
   }
 `;

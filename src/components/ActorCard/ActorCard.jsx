@@ -1,9 +1,10 @@
 import React from 'react'
+
 import { POSTER_URL } from 'services/api';
+
 import { CardContainer } from './ActorCard.styled';
 
 export const ActorCard = ({ actor }) => {
-  
   const { name, profile_path, original_name, character } = actor;
   return (
       <CardContainer>

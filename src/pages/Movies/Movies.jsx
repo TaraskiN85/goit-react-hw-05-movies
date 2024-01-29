@@ -1,60 +1,63 @@
-import React, { useState } from 'react'
-import { fetchSearchedMovies } from 'services/api'
-import { MoviesContainer, StyledMovies } from './Movies.styled'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
 import { MovieCard } from 'components/MovieCard/MovieCard'
 
+import { Loader } from 'helpers/Loader/Loader'
+import { fetchSearchedMovies } from 'services/api'
+
+import { Form, MoviesContainer, StyledMovies } from './Movies.styled'
+
 const Movies = () => {
-
   const [movies, setMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation()
+  
+  const query = searchParams.get('q')
 
+  useEffect(() => {
+    if (query === null) return
+
+    const fetchMovie = async (searchTerm) => {
+      try {
+        setIsLoading(true)
+        const data = await fetchSearchedMovies(searchTerm)
+        const validData = data.results.filter(movie => {
+          return movie.poster_path !== null & movie.backdrop_path !== null
+        })
+        setMovies(validData)
+      } catch (error) {
+        toast.error(error.message)
+        setIsLoading(false)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchMovie(query)
+  }, [query])
   const handleSearch = (e) => {
     e.preventDefault()
     const searchTerm = e.currentTarget.elements.search.value
-    console.log(searchTerm)
-    const fetchMovie = async (searchTerm) => {
-      try {
-        const data = await fetchSearchedMovies(searchTerm)
-        setMovies(data.results)
-        console.log(data.results)
-      } catch (error) {
-        console.log(error.message)
-      }
-    }
-
-    fetchMovie(searchTerm)
-    e.currentTarget.reset();
+    setSearchParams({q: searchTerm})
   }
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <label htmlFor="search">
-          <input type="text" name="search" placeholder='search...'/>
-          <button type='submit'>Search</button>
-        </label>
-      </form>
+      <Form onSubmit={handleSearch}>
+        <input type="text" name="search" defaultValue={query} placeholder='search...'/>
+        <button type='submit' >Search</button>
+      </Form>
       <MoviesContainer>
         {movies.length > 0 && movies.map(movie => 
-          <StyledMovies to={`/movies/${movie.id}`} key={movie.id} ><MovieCard movieInfo={movie} /></StyledMovies>
+          <StyledMovies to={`/movies/${movie.id}`} state={{from: location}} key={movie.id} ><MovieCard movieInfo={movie} /></StyledMovies>
         )}
       </MoviesContainer>
+      {isLoading && <Loader/>}
     </div>
   )
 }
 
 export default Movies
-
-
-// backdrop_path: null
-// genre_ids: []
-// id: 1192753
-// original_language: "en"
-// original_title: "Love"
-// overview: "Love explores the shapeshifting nature of language on the internet. In the video, images extracted from Instagram—all found under #love—are transformed and integrated with original footage shot by the artist. #love is the most used hashtag on Instagram and currently there are over 2 billion posts tagged in this way. Connecting seemingly disparate images, Love tries to understand and link all of the possible associations of a given word at a single moment in time through narrative. A voiceless narrator—a loose personification of the Instagram platform or perhaps even the internet itself—addresses the viewer in the form of a love letter."
-// popularity: 0.846
-// poster_path: "/9rH0yCe7CPyToe8tg7YowDCui7D.jpg"
-// release_date: "2023-10-27"
-// title: "Love"
-// video: false
-// vote_average: 0
-// vote_count: 0

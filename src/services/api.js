@@ -27,9 +27,6 @@ export const fetchMovieDetails = async movieId => {
 };
 
 export const fetchSearchedMovies = async movieName => {
-  // --request GET \
-  //    --url 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1' \
-  //    --header 'accept: application/json'
   const options = {
     method: 'GET',
     url: `${BASE_URL}/search/movie?query=${movieName}`,

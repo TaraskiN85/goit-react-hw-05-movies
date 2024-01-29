@@ -6,18 +6,15 @@ export const StyledSection = styled.section`
   margin: auto;
 `;
 
-// export const ImgContainer = styled.div`
-//   height: 900px;
-// `;
 export const BgContainer = styled.div`
   width: 140%;
   height: 900px;
   left: 50%;
   transform: translate(-13%);
-  background-image: url(${props => props.imgUrl});
+  background-image: url(${props => props.url});
+  opacity: 0.6;
   background-repeat: no-repeat;
   background-size: cover;
-  /* box-shadow: 0px 30px 40px 30px #14181d inset; */
   box-shadow: inset 55px 55px 40px #14181d, inset -55px -35px 40px #14181d;
   background-clip: content-box;
   padding: 1px;
@@ -26,11 +23,9 @@ export const BgContainer = styled.div`
 
 export const StyledImg = styled.div`
   height: auto;
-  border: 1px solid #021a40;
 `;
 
 export const DetailsContainer = styled.div`
-  top: 60px;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 54px;
@@ -51,14 +46,15 @@ export const TitleContainer = styled.div`
 
   > h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 60px;
+    font-size: 45px;
   }
+`;
 
-  > p {
-    font-size: 30px;
-    font-weight: 400;
-    text-decoration: underline;
-  }
+export const StyledP = styled.p`
+  flex-grow: auto;
+  font-size: 26px;
+  font-weight: 400;
+  color: ${({ $color }) => `${$color}`};
 `;
 
 export const StyledList = styled.ul`
@@ -78,6 +74,7 @@ export const StyledList = styled.ul`
 
     > p {
       font-size: 30px;
+      line-height: 1.3;
     }
   }
 `;

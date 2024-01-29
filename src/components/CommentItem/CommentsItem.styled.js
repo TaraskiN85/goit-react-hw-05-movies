@@ -15,3 +15,21 @@ export const StyledItem = styled.li`
     line-height: 1.2;
   }
 `;
+
+export const Button = styled.button`
+  font-size: 24px;
+  color: green;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  float: right;
+  margin-right: 120px;
+  margin-top: 16px;
+
+  transition: ease-in 0.1s;
+
+  &:hover,
+  &:focus {
+    color: limegreen;
+  }
+`;
