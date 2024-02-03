@@ -8,7 +8,7 @@ import { Loader } from 'helpers/Loader/Loader';
 import { fetchMovieComments } from 'services/api';
 import { StyledList } from './Comments.styled';
 
-export const Comments = () => {
+const Comments = () => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -45,3 +45,5 @@ export const Comments = () => {
     </StyledList>
   )
 }
+
+export default Comments

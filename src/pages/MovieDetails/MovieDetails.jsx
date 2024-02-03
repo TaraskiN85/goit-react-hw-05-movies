@@ -36,6 +36,10 @@ const MovieDetails = () => {
 
   }, [movieId])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <StyledContainer>
       <StyledLink to={backLinkHref}>Go Back</StyledLink>

@@ -13,6 +13,8 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     try {
       setIsLoading(true)
       const fetchData = async () => {

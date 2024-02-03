@@ -30,7 +30,7 @@ export const fetchSearchedMovies = async movieName => {
   const options = {
     method: 'GET',
     url: `${BASE_URL}/search/movie?query=${movieName}`,
-    params: { language: 'en-US', include_adult: true, page: 1 },
+    params: { language: 'en-US', include_adult: false, page: 1 },
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       accept: 'application/json',

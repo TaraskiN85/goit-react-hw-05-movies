@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { Cast } from 'components/Cast/Cast'
-import { Comments } from 'components/Comments/Comments'
-
 import { HeaderContainer, MainContainer, StyledLink, StyledSection } from './AdditionalSection.styled'
+import { Loader } from 'helpers/Loader/Loader'
 
+const Cast = lazy(() => import('../Cast/Cast'))
+const Comments = lazy(() => import('../Comments/Comments'))
 
 export const AdditionalSection = () => {
   return (
@@ -16,10 +16,12 @@ export const AdditionalSection = () => {
         <StyledLink to='comments'>Comments</StyledLink>
       </HeaderContainer>
       <MainContainer>
-        <Routes>
-          <Route path="cast" element={<Cast />} />
-          <Route path="comments" element={<Comments />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="cast" element={<Cast />} />
+            <Route path="comments" element={<Comments />} />
+          </Routes>
+        </Suspense>
       </MainContainer>
     </StyledSection>
   )

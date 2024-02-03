@@ -8,7 +8,7 @@ import { Loader } from 'helpers/Loader/Loader';
 
 import { CastContainer } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
@@ -38,3 +38,5 @@ export const Cast = () => {
       {isLoading && <Loader/>}
     </CastContainer>)
 }
+
+export default Cast
