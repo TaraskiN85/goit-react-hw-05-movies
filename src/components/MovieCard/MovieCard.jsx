@@ -14,7 +14,7 @@ export const MovieCard = ({ movieInfo }) => {
       <img src={`${POSTER_URL}${poster_path}`} alt={`movie ${title} poster`} />
       <Description>
         <h3>{title} ({release_year})</h3>
-        <p><span>Overview</span>{overview}</p>
+        <p><span>Overview: </span>{overview}</p>
         <div>
           <p><span>Votes</span>{vote_average}</p>
           <p><span>Viewed</span>{vote_count}</p>

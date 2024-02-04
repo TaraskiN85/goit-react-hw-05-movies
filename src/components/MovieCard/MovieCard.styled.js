@@ -5,6 +5,16 @@ export const StyledInfo = styled.div`
   flex-direction: row;
   gap: 50px;
   margin-top: 50px;
+  transition: ease-in 200ms;
+
+  &:hover,
+  &:focus {
+    color: silver;
+
+    h3 {
+      color: #fff;
+    }
+  }
 
   > img {
     width: 100%;
@@ -12,7 +22,6 @@ export const StyledInfo = styled.div`
     max-height: 300px;
     margin: auto 0;
   }
-  /* } */
 `;
 
 export const Description = styled.div`
@@ -25,6 +34,7 @@ export const Description = styled.div`
     font-size: 40px;
     margin-bottom: 16px;
     color: lightgrey;
+    transition: ease-in 200ms;
   }
 
   > p {
@@ -44,6 +54,7 @@ export const Description = styled.div`
 
       > span {
         color: silver;
+        font-weight: 500;
       }
     }
   }
