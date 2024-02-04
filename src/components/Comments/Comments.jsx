@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
-import { CommentItem } from 'components/CommentItem/CommentItem';
+import { CommentItem } from 'components';
 import { Loader } from 'helpers/Loader/Loader';
 
 import { fetchMovieComments } from 'services/api';

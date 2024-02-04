@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 
-import { TrendMovieItem } from 'components/TrendMovieItem/TrendMovieItem';
+import { TrendMovieItem } from 'components';
 
 import { Loader } from 'helpers/Loader/Loader';
 import { fetchTrendingMovies } from 'services/api';

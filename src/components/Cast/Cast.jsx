@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { ActorCard } from 'components/ActorCard/ActorCard';
+import { ActorCard } from 'components';
 import { fetchMovieCast } from 'services/api';
 import { Loader } from 'helpers/Loader/Loader';
 

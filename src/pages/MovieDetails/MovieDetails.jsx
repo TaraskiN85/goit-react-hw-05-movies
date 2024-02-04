@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
-import { AdditionalSection } from 'components/AdditionalSection/AdditionalSection';
-import { MainSection } from 'components/MainSection/MainSection';
+import { AdditionalSection, MainSection } from 'components';
 
 import { fetchMovieDetails } from 'services/api';
 import { Loader } from 'helpers/Loader/Loader';

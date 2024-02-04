@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-import { MovieCard } from 'components/MovieCard/MovieCard'
+import { MovieCard } from 'components'
 
 import { Loader } from 'helpers/Loader/Loader'
 import { fetchSearchedMovies } from 'services/api'
