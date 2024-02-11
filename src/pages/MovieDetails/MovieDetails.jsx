@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
@@ -15,8 +15,9 @@ const MovieDetails = () => {
   const location = useLocation();
 
   const movieId = useParams().movieId;
-  const backLinkHref = location.state?.from ?? "/"
+  const backLinkHref = useRef(location.state?.from ?? "/")
   
+  console.log(backLinkHref)
   useEffect(() => {
 
     try { 
@@ -41,7 +42,7 @@ const MovieDetails = () => {
 
   return (
     <StyledContainer>
-      <StyledLink to={backLinkHref}>Go Back</StyledLink>
+      <StyledLink to={backLinkHref.current}>Go Back</StyledLink>
       {movieDetails && <>
         <MainSection movieInfo={movieDetails} />
       </>}
